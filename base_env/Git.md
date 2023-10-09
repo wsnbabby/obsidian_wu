@@ -86,3 +86,9 @@ build/  # 忽略build/ 目录下的所有文件
 doc/*.txt  # 会忽略 doc/notes.txt 但不包括doc/server/arch.txt
 
 ```
+
+## FAQ
+
+1. 内容已经修改并推送到了远端仓库，想要撤回，且不想要远端留下该条记录
+	- 先回退本地修改记录，然后`git push --force`【会导致远端仓库不可逆，危险操作，谨慎使用，做好备份】
+
