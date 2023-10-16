@@ -87,8 +87,17 @@ doc/*.txt  # 会忽略 doc/notes.txt 但不包括doc/server/arch.txt
 
 ```
 
+
+
+
+
+
 ## FAQ
 
 1. 内容已经修改并推送到了远端仓库，想要撤回，且不想要远端留下该条记录
 	- 先回退本地修改记录，然后`git push --force`【会导致远端仓库不可逆，危险操作，谨慎使用，做好备份】
 
+2. 独立子项目并保留提交记录
+	- `git subtree split -P ${name of folder} -b ${new branch}`
+	- 切换到新的分支
+	- 推送到远端新仓库
