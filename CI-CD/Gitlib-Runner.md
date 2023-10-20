@@ -22,7 +22,18 @@ sudo useradd --comment 'GitLab Runner' --create-home gitlab-runner --shell /bin/
 
 # Install and run as a service
 sudo gitlab-runner install --user=gitlab-runner --working-directory=/home/gitlab-runner
-sudo gitlab-runner start	
+sudo gitlab-runner start
+
+# 可以查看到gitlab-runner的工作目录和默认用户等一系列相关信息
+ps aux|grep gitlab-runner
+
+# 如果不想以gitlab-runner用户安装：
+# 先卸载
+sudo gitlab-runner uninstall
+#以root用户身份安装
+gitlab-runner install --working-directory /home/gitlab-runner --user root
+#重启服务
+systemctl restart gitlab-runner.service
 ```
 
 ## 配置
@@ -46,3 +57,19 @@ sudo gitlab-runner register --url http://127.0.0.1:9808/ --registration-token $T
 - Docker
 - K8s
 - ...
+
+
+## FAQ
+
+### 权限不足报错
+> Preparing environment00:00
+> Running on zkcsdn...
+> ERROR: Job failed: prepare environment: exit status 1.
+
+```bash
+rm .bashrc_logout
+```
+
+
+
+
