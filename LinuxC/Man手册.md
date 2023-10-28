@@ -4,6 +4,9 @@
 有些系统未自带完整的man手册，可以自行安装
 
 ```bash
+# 先更新apt-get
+sudo apt-get update
+
 # ubunut
 sudo apt-get install manpages-de manpages-de-dev manpages-dev glibc-doc manpages-posix-dev manpages-posix
 
