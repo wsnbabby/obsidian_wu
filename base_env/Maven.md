@@ -1,3 +1,10 @@
+
+## 安装
+
+```bash
+apt-get install maven
+```
+
 ## Settings.xml说明
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

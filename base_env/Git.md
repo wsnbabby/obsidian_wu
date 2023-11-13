@@ -1,3 +1,9 @@
+## 安装
+
+```bash
+apt-get install git
+```
+
 ## 初始化
 ```bash
 git init

@@ -47,9 +47,14 @@ systemctl restart gitlab-runner.service
 # 可以在gitlab的group或project右侧菜单settings->ci/cd->runner中找到
 # url一般是gitlab的地址
 # TOKEN是project或group的标识
-sudo gitlab-runner register --url http://127.0.0.1:9808/ --registration-token $TOKEN
+sudo gitlab-runner register 
 ```
 
+- url : gitlab地址（ip:port）
+- token， 有两种方式，一种对应组(改组下所有project共用)，一种是单个项目
+	- group-runner：
+	- project-runner
+- shell
 
 ## Executor类型
 - Shell
