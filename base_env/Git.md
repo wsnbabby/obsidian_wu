@@ -88,7 +88,7 @@ git push [alias] [branch] # 推送到远程仓库
 *.a  # 忽略所有.a结尾的文件
 !lib.a  # 但lib.a除外
 /TODO  # 仅仅忽略项目根目录下的TODO文件，不包括subdir/TODO
-build/  # 忽略build/ 目录下的所有文件
+build/  # 忽略build/ 目录下的所有文件，包括subdir/build/
 doc/*.txt  # 会忽略 doc/notes.txt 但不包括doc/server/arch.txt
 
 ```

@@ -1,9 +1,4 @@
 
-## 安装
-
-```bash
-apt-get install maven
-```
 
 ## Settings.xml说明
 ```xml
