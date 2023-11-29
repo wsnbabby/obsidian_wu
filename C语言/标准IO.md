@@ -27,18 +27,38 @@ FILE *freopen(const char *pathname, const char *mode, FILE *stream);
 > 在所有的遵循 POSIX 的系统中，`b`都被忽略，包括 Linux。(其他系统可能将文本文件和二进制文件区别对待，如果在进行二进制文件的 I/O，那么添加 `b` 是个好主意，因为你的程序可能会被移植到非 Unix 环境中。)
 
 
+
 ## fclose
 
 ```C
 int fclose(FILE *stream);
 ```
 
-## fget
+## fgetc
 
 ```C
-int fclose(FILE *stream);
+int fgetc(FILE *stream);
 ```
 
+## getc (宏)
+
+```C
+int getc(FILE *stream);
+```
+
+## fgets
+
+```C
+char *fgets(char *s, int size, FILE *stream);
+```
+
+## fgetchar
+
+```C
+int getchar(void);
+```
+
+## fputs
 ## fput
 ```C
 int fputc(int c, FILE *stream);
@@ -52,10 +72,9 @@ int putchar(int c);
 int puts(const char *s);
 ```
 
-## fgets
 
 
-## fputs
+
 
 ## fscanf
 
@@ -65,3 +84,30 @@ int puts(const char *s);
 ## fread
 
 ## fwrite
+
+
+
+# 文件定位
+
+>每个流都有相关联的文件位置（file position），打开文件时会将文件位置设置在文件开始处（追加模式会设置在文件末尾），后续的读写操作会自动推进
+
+三种宏：
+- SEEK_SET 文件起始处
+- SEEK_CUR 文件当前位置
+- SEEK_END 文件末尾
+
+## fseek
+
+```C
+int fseek(FILE *stream, long offset, int whence);
+```
+
+## fgetpos
+
+## fsetpos
+
+## ftell
+
+## rewind
+
+
