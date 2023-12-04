@@ -38,14 +38,19 @@ int fclose(FILE *stream);
 
 int fgetc(FILE *stream);
 
+// 宏，与fgetc相同
+int getc(FILE *stream);
+
 // 从指定的流 stream 读取一行，并把它存储在str所指向的字符串内。当读取(n-1)个字符时，或者读取到换行符时，或者到达文件末尾时，它会停止
 char *fgets(char *s, int size, FILE *stream);
 
-// 宏
-int getc(FILE *stream);
-
+// 从STDIN(标准输入)获取并返回下一个字符,如果到达文件尾返回EOF
 int getchar(void);
 
+// 从STDIN(标准输入)读取字符并把它们加载到_str_(字符串)里,直到遇到新行(\n)或到达EOF. 新行字符翻译为一个null中断符. gets()的返回值是读入的字符串,如果错误返回NULL
+char *gets(char *str);
+
+// 普通文件输入流可以使用ungetc放回一个字符，但是一次只能够放回一个，必须要等到放回的字符读出来之后再才能接着放回一个字符
 int ungetc(int c, FILE *stream);
 ```
 ## fput
