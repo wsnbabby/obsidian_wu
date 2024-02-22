@@ -104,6 +104,10 @@ doc/*.txt  # 会忽略 doc/notes.txt 但不包括doc/server/arch.txt
 	- 先回退本地修改记录，然后`git push --force`【会导致远端仓库不可逆，危险操作，谨慎使用，做好备份】
 
 2. 独立子项目并保留提交记录
-	- `git subtree split -P ${name of folder} -b ${new branch}`
-	- 切换到新的分支
-	- 推送到远端新仓库
+    - `git subtree split -P ${name of folder} -b ${new branch}`
+    - 切换到新的分支
+    - 推送到远端新仓库
+
+3. 解决Windos下`git status`中文乱码
+	- `git bash` 终端输入命令 `git config --global core.quotepath false`
+	- 终端界面鼠标右击`Options-Text`选择`zh_CN`和`UTF-8`
