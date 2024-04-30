@@ -52,7 +52,10 @@ git push origin main # 将本地仓库推送到远程服务器
 
 `refs/for 的意义在于我们提交代码到服务器之后是需要经过code review 之后才能进行merge的，而refs/heads 不需要`
 
-
+```sh
+# 只克隆某个分支代码，不会下载整个git仓库
+Git clone -b {dev} --single-branch
+```
 ## 分支管理
 ```bash
 
@@ -111,3 +114,15 @@ doc/*.txt  # 会忽略 doc/notes.txt 但不包括doc/server/arch.txt
 3. 解决Windos下`git status`中文乱码
 	- `git bash` 终端输入命令 `git config --global core.quotepath false`
 	- 终端界面鼠标右击`Options-Text`选择`zh_CN`和`UTF-8`
+
+4. 无法拉取github代码或提交
+	fatal: unable to access 'https://github.com/wsnbabby/obsidian_wu.git/': Failed to connect to github.com port 443 after 21102 ms: Timed out
+
+```bash
+//取消http代理
+git config --global --unset http.proxy
+//取消https代理 
+git config --global --unset https.proxy
+```
+
+5. 
