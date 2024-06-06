@@ -13,15 +13,20 @@
 - d_model 学习维度（超参数）
 - num_heads 多头机制头数（切分d_model）
 
-# 训练原理
+# 训练流程
 
 > 大模型实际就两文件
 ![[Pasted image 20240428104308.png]]
+
 ![[Pasted image 20240428135709.png]]
+
+![[Pasted image 20240509093446.png]]
+
+![[Pasted image 20240509093534.png]]
 ![[Pasted image 20240428105040.png]]
 
 ![[Pasted image 20240428113207.png]]
-### Tokenization
+## Tokenization
 
 - 加载分词器tokenizer.model
 ```python
@@ -79,6 +84,12 @@ for pos in range(16):
 ![[Pasted image 20240429160320.png]]
 
 
+## Attention - QKV
+
+![[Pasted image 20240428144752.png]]
+
+![[Pasted image 20240428145116.png]]
+
 ## Layer Normalization
 
 > 层归一化规则:
@@ -95,22 +106,15 @@ nn.LayerNorm(bias=True)
 
 ## softmax
 
-> **归一化指数函数**
-> 在机器学习尤其是深度学习中，softmax是个非常常用而且比较重要的函数，尤其在多分类的场景中使用广泛。他把一些输入映射为0-1之间的实数，并且归一化保证和为1，因此多分类的概率之和也刚好为1。
+>在机器学习尤其是深度学习中，softmax是个非常常用而且比较重要的函数，尤其在多分类的场景中使用广泛。他把一些输入映射为0-1之间的实数，并且归一化保证和为1，因此多分类的概率之和也刚好为1。
 
-$$\sigma(\overrightarrow{z})_{i}=\frac{e^{z_{i}}}{\sum_{j=1}^{k}e^{jz}}$$
+$$\sigma(\overrightarrow{z})_{i}=\frac{e^{z_{i}}}{\sum_{j=1}^{k}e^{z_j}}$$
 ```python
 torch.softmax()
 ```
 
 ![[Pasted image 20240428142844.png]]
 
-
-## Attention - QKV
-
-![[Pasted image 20240428144752.png]]
-
-![[Pasted image 20240428145116.png]]
 
 ## 交叉熵损失函数
 
