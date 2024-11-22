@@ -22,3 +22,16 @@ select * from 表名 where date_formar( 时间字段名, ‘%Y%m’ ) = date_for
 -- 上一月
 select * from 表名 where period_diff( date_format( now( ) , ‘%Y%m’ ) , date_format( 时间字段名, ‘%Y%m’ ) ) =1 ;
 ```
+
+
+## 单表内分类求和
+
+```sql
+-- 统计视频和照片的数量（type=0为照片，type=1为视频）
+SELECT  
+	IFNULL(SUM(CASE WHEN type = 0 THEN 1 ELSE 0 END),0)  AS photoNums,
+	IFNULL(SUM(CASE WHEN type = 1 THEN 1 ELSE 0 END),0) AS videoNums
+	FROM  
+    t_file_info WHERE family_id=#{familyId} and del_flag = 0;
+```
+
