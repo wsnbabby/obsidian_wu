@@ -8,7 +8,7 @@
 select * from 表名 where to_days(时间字段名) = to_days(now());
 
 -- 昨天
-select * from 表名 where  to_days( now( ) ) – to_days( 时间字段名) <= 1 ;
+select * from 表名 where  to_days( now( ) ) - to_days( 时间字段名) <= 1 ;
 
 -- 7天
 select * from 表名 where date_sub(curdate(), interval 7 day) <= date(时间字段名) ;
